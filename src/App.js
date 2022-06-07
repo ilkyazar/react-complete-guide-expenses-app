@@ -28,10 +28,16 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const handleAddNewExpense = (expense) => {
+    console.log('Adding New Expense');
+    console.log(expenses);
+  };
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense />
+      <NewExpense onAddExpense={handleAddNewExpense} />
       <Expenses expenses={expenses} />
     </div>
   );
