@@ -17,14 +17,16 @@ function Expenses(props) {
         onChangeYear={handleYearChanged}
       />
       <Card className="expenses">
-        {props.expenses.map((e) => (
-          <ExpenseItem
-            key={e.id}
-            title={e.title}
-            amount={e.amount}
-            date={e.date}
-          />
-        ))}
+        {props.expenses
+          .filter((e) => e.date.getFullYear().toString() === year)
+          .map((e) => (
+            <ExpenseItem
+              key={e.id}
+              title={e.title}
+              amount={e.amount}
+              date={e.date}
+            />
+          ))}
       </Card>
     </div>
   );
